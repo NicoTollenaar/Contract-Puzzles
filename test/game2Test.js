@@ -14,6 +14,13 @@ describe('Game2', function () {
 
     // press all the right switches to win this stage
 
+    const switches = [20, 47, 212];
+    let tx;
+    for (let i = 0; i < switches.length; i++) {
+      tx = await game.switchOn(switches[i]);
+      await tx.wait();
+    }
+
     await game.win();
 
     // leave this assertion as-is
